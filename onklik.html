@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Selamat Tahun Baru</title>
+
+<!-- CONFETTI -->
+<script src="https://cdn.jsdelivr.net/npm/tsparticles-confetti@2.12.0/tsparticles.confetti.bundle.min.js"></script>
+
+<style>
+  body{
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    font-family: Arial, sans-serif;
+    color: white;
+  }
+
+  #kartu{
+    text-align: center;
+    padding: 20px;
+  }
+
+  button{
+    padding: 18px 36px;
+    font-size: 20px;
+    border: none;
+    border-radius: 30px;
+    background: #ffcc00;
+    color: #000;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  button:hover{
+    transform: scale(1.1);
+    background: #ffd633;
+    box-shadow: 0 0 15px #ffcc00;
+  }
+
+  h1{
+    font-size: 50px;
+    margin-bottom: 15px;
+  }
+
+  p{
+    font-size: 26px;
+  }
+
+  .zoom{
+    animation: zoomIn 1s ease forwards;
+  }
+
+  @keyframes zoomIn{
+    from{ transform: scale(0); opacity: 0; }
+    to{ transform: scale(1); opacity: 1; }
+  }
+</style>
+</head>
+
+<body>
+
+<!-- 🎵 MUSIK ONLINE : TRESNO LIYANE -->
+<audio id="musik" loop>
+  <source src="https://youtu.be/n07v4DuF2D0?si=80p7vKR6d-596G8w" type="audio/mpeg">
+</audio>
+
+<div id="kartu">
+  <button onclick="ubahkartu()">Klik disini sodara!</button>
+</div>
+
+<script>
+  let kartu = document.getElementById("kartu");
+  let musik = document.getElementById("musik");
+
+  function ubahkartu(){
+    kartu.innerHTML = `
+      <h1 class="zoom">🎉 SELAMAT TAHUN BARU 🎉</h1>
+      <p class="zoom">Semoga sehat, panjang umur, lan tresno ora salah wong 🤍</p>
+    `;
+
+    // ▶️ PUTAR MUSIK
+    musik.play();
+
+    // 🎆 CONFETTI
+    confetti({
+      particleCount: 250,
+      spread: 140,
+      origin: { y: 0.6 }
+    });
+  }
+</script>
+
+</body>
+</html>
